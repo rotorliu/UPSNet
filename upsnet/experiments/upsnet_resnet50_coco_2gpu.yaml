@@ -56,5 +56,5 @@ test:
   batch_size: 1
   test_iteration: 90000
   panoptic_stuff_area_limit: 4096
-  vis_mask: false
+  vis_mask: true
 
