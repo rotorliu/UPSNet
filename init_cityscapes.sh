@@ -27,7 +27,7 @@ fi
 
 if [ ! -d labels ]; then
     mkdir labels
-    cp gtFine/*/*/*labelTrainIds.png labels
+    cp gtFine/*/*/*labelIds.png labels
 fi
 
 if [ ! -d panoptic ]; then
