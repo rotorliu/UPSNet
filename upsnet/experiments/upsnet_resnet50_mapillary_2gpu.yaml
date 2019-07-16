@@ -6,7 +6,7 @@ gpus: '0,1'
 dataset:
   num_classes: 37
   num_seg_classes: 66
-  dataset: coco
+  dataset: mapillary
   dataset_path: "./data/mapillary/"
   image_set: train
   root_path: "./data/"
