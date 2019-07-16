@@ -68,7 +68,7 @@ class Mapillary(BaseDataset):
             for image_set, proposal_file in zip(image_sets, proposal_files):
                 dataset = JsonDataset('mapillary_' + image_set,
                                       image_dir=image_dirs[image_set],
-                                      anno_file=os.path.join(config.dataset.dataset_path, anno_files[image_set]))
+                                      anno_file=anno_files[image_set])
                 roidb = dataset.get_roidb(gt=True, proposal_file=proposal_file, crowd_filter_thresh=config.train.crowd_filter_thresh)
                 if flip:
                     if logger:
@@ -85,8 +85,7 @@ class Mapillary(BaseDataset):
             assert len(image_sets) == 1
             self.dataset = JsonDataset('mapillary_' + image_sets[0],
                                        image_dir=image_dirs[image_sets[0]],
-                                       anno_file=os.path.join(config.dataset.dataset_path,
-                                       anno_files[image_sets[0]]))
+                                       anno_file=anno_files[image_sets[0]])
             roidb = self.dataset.get_roidb(gt=phase != 'test', proposal_file=proposal_files[0],
                                            crowd_filter_thresh=config.train.crowd_filter_thresh if phase != 'test' else 0)
             if flip:
