@@ -32,10 +32,10 @@ train:
   snapshot_step: 2000
   resume: false
   begin_iteration: 0
-  max_iteration: 360000
+  max_iteration: 720000
   decay_iteration:
-  - 240000
-  - 320000
+  - 480000
+  - 640000
   warmup_iteration: 1500
   lr: 0.0025
   wd: 0.0001
