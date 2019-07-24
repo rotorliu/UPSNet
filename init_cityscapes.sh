@@ -1,6 +1,14 @@
 # Download devkit
 git clone https://github.com/mcordts/cityscapesScripts lib/dataset_devkit/cityscapesScripts
 
+cd lib/dataset_devkit/cityscapesScripts
+
+export CITYSCAPES_DATASET=/workspace/UPSNet/data/cityscapes
+
+python cityscapesscripts/preparation/createTrainIdLabelImgs.py
+
+cd ../../../
+
 # Download coco format anntations
 
 mkdir -p data/cityscapes/annotations
@@ -27,7 +35,7 @@ fi
 
 if [ ! -d labels ]; then
     mkdir labels
-    cp gtFine/*/*/*labelIds.png labels
+    cp gtFine/*/*/*labelTrainIds.png labels
 fi
 
 if [ ! -d panoptic ]; then
