@@ -63,4 +63,4 @@ test:
   batch_size: 1
   test_iteration: 3000
   panoptic_stuff_area_limit: 2048
-  vis_mask: true
+  vis_mask: false
