@@ -293,7 +293,11 @@ class Cityscapes(BaseDataset):
             'bus',
             'train',
             'motorcycle',
-            'bicycle',
+            'bicycle'
+        ]
+
+        self.stuff_classes = [
+            '__background__',
             'road',
             'sidewalk',
             'building',
@@ -349,6 +353,26 @@ class Cityscapes(BaseDataset):
                                 fill=True, facecolor=color, edgecolor='w', linewidth=0.8, alpha=0.5
                             )
                         )
+            
+            for j, name in enumerate(self.stuff_classes):
+                if name == '__background__':
+                    continue
+                segms = all_masks[j][i]
+                if segms == []:
+                    continue
+                masks = mask_util.decode(segms)
+                for k in range(masks.shape[2]):
+                    mask = masks[:, :, k]
+                    _, contour, hier = cv2.findContours(mask.copy(), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE)
+                    color = (palette[name][0] / 255, palette[name][1] / 255, palette[name][2] / 255)
+                    for c in contour:
+                        ax.add_patch(
+                            Polygon(
+                                c.reshape((-1, 2)),
+                                fill=True, facecolor=color, edgecolor='w', linewidth=0.8, alpha=0.5
+                            )
+                        )
+
             if save_path is None:
                 plt.show()
             else:
