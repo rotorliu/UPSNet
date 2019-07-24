@@ -294,6 +294,17 @@ class Cityscapes(BaseDataset):
             'train',
             'motorcycle',
             'bicycle',
+            'road',
+            'sidewalk',
+            'building',
+            'wall',
+            'fence',
+            'pole',
+            'sky',
+            'traffic light',
+            'traffic sign',
+            'vegetation',
+            'terrain'
         ]
 
         if save_path is not None:
