@@ -3,6 +3,8 @@ git clone https://github.com/mcordts/cityscapesScripts lib/dataset_devkit/citysc
 
 cd lib/dataset_devkit/cityscapesScripts
 
+pip install .
+
 export CITYSCAPES_DATASET=/workspace/UPSNet/data/cityscapes
 
 python cityscapesscripts/preparation/createTrainIdLabelImgs.py
